@@ -46,8 +46,8 @@ app.use("/webhooks/whop", whopWebhook);
 app.get("/health", (_, res) => res.json({ ok: true }));
 app.use("/debug/analytics", debugAnalyticsRoutes);
 
-const PORT = 4000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
