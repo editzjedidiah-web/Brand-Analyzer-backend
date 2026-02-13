@@ -34,4 +34,17 @@ router.get("/", (req, res) => {
   });
 });
 
+// Lightweight public demo route at /demo/public/:username
+router.get("/public/:username", (req, res) => {
+  const { username } = req.params;
+
+  return res.json({
+    username,
+    competitors: [],
+    insights: [],
+    generated_at: new Date().toISOString(),
+  });
+});
+
 export default router;
+
